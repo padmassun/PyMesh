@@ -51,17 +51,17 @@ class cmake_build(build):
         Config and build third party dependencies.
         """
         commands = [
-                "third_party/build.py cgal",
-                "third_party/build.py eigen",
-                "third_party/build.py triangle",
-                "third_party/build.py tetgen",
-                "third_party/build.py clipper",
-                "third_party/build.py qhull",
-                "third_party/build.py cork",
-                #"third_party/build.py carve",
-                "third_party/build.py draco",
-                "third_party/build.py tbb",
-                "third_party/build.py mmg",
+                "python third_party/build.py cgal",
+                "python third_party/build.py eigen",
+                "python third_party/build.py triangle",
+                "python third_party/build.py tetgen",
+                "python third_party/build.py clipper",
+                "python third_party/build.py qhull",
+                "python third_party/build.py cork",
+                #"python third_party/build.py carve",
+                "python third_party/build.py draco",
+                "python third_party/build.py tbb",
+                "python third_party/build.py mmg",
                 ];
         for c in commands:
             check_call(c.split())

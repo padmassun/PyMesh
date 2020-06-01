@@ -29,7 +29,10 @@ def get_pymesh_dir():
 
 def build_generic(libname, build_flags="", cleanup=True):
     pymesh_dir = get_pymesh_dir();
+    pymesh_dir = os.path.abspath(pymesh_dir)
     build_dir = os.path.join(pymesh_dir, "third_party", "build", libname);
+    vcpkg_toolchain = os.path.join(pymesh_dir, "third_party", "vcpkg", "scripts", "buildsystems", "vcpkg.cmake");
+    install_prefix = os.path.join(pymesh_dir, "python", "pymesh", "third_party");
     if not os.path.exists(build_dir):
         os.makedirs(build_dir);
 
@@ -38,15 +41,19 @@ def build_generic(libname, build_flags="", cleanup=True):
             " {}/third_party/{}".format(pymesh_dir, libname) + \
             " -DBUILD_SHARED_LIBS=Off" + \
             " -DCMAKE_POSITION_INDEPENDENT_CODE=On" + \
+            " -DCMAKE_TOOLCHAIN_FILE={}".format(vcpkg_toolchain) + \
             build_flags + \
-            " -DCMAKE_INSTALL_PREFIX={}/python/pymesh/third_party/".format(pymesh_dir);
-    subprocess.check_call(cmd.split(), cwd=build_dir);
+            " -DCMAKE_INSTALL_PREFIX={}".format(install_prefix);
+    print(cmd)
+    subprocess.check_call(cmd, cwd=build_dir);
 
     # Build cgal
     cmd = "cmake --build {}".format(build_dir);
+    print(cmd)
     subprocess.check_call(cmd.split());
 
     cmd = "cmake --build {} --target install".format(build_dir);
+    print(cmd)
     subprocess.check_call(cmd.split());
 
     # Clean up
