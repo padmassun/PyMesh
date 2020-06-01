@@ -4,7 +4,7 @@
 	shallow = true
 [submodule "third_party/cork"]
 	path = third_party/cork
-	url = https://github.com/PyMesh/cork.git
+	url = https://github.com/padmassun/cork.git
 	shallow = true
 [submodule "third_party/tetgen"]
 	path = third_party/tetgen
@@ -24,7 +24,7 @@
 	shallow = true
 [submodule "third_party/eigen"]
 	path = third_party/eigen
-	url = https://github.com/PyMesh/eigen.git
+	url = https://github.com/padmassun/eigen.git
 	shallow = true
 [submodule "third_party/quartet"]
 	path = third_party/quartet
@@ -60,11 +60,11 @@
 	shallow = true
 [submodule "third_party/tbb"]
 	path = third_party/tbb
-	url = https://github.com/PyMesh/tbb.git
+	url = https://github.com/padmassun/tbb.git
 	shallow = true
 [submodule "libigl"]
 	path = third_party/libigl
-	url = https://github.com/PyMesh/libigl.git
+	url = https://github.com/padmassun/libigl.git
 	shallow = true
 [submodule "third_party/jigsaw"]
 	path = third_party/jigsaw
